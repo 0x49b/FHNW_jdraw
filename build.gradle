@@ -1,0 +1,30 @@
+plugins {
+	id 'java'
+	id 'application'
+	id 'idea'		// optional (to generate IntelliJ IDEA project files)
+	id 'eclipse'	// optional (to generate Eclipse project files)
+}
+
+mainClassName  = "jdraw.JDraw"
+
+repositories {
+    jcenter()
+}
+
+sourceCompatibility = 11
+targetCompatibility = 11
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+dependencies {
+	implementation 'org.springframework:spring-context:4.3.19.RELEASE'
+	implementation 'log4j:log4j:1.2.17'
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+}
+
+test {
+	useJUnitPlatform()
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+}
