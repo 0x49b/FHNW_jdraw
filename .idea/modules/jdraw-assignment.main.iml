@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="ExternalSystem" externalSystem="GRADLE" externalSystemModuleGroup="" externalSystemModuleType="sourceSet" externalSystemModuleVersion="unspecified" linkedProjectId="jdraw-assignment:main" linkedProjectPath="$MODULE_DIR$/../.." rootProjectPath="$MODULE_DIR$/../.." />
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/../../src/main/resources/jdraw-context.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+  </component>
+</module>
