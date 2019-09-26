@@ -1,0 +1,13 @@
+
+isquid:S3776‘"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ý¼õA
+bsquid:CommentedOutCodeLineX"<This block of commented-out lines of code should be removed.(¬å’º
+@squid:S19480")Make "context" transient or serializable.(¸™¿É
+@squid:S19486")Make "handles" transient or serializable.(¢÷‹ñ
+Bsquid:S3398–"*Move this method into "InputEventHandler".(¹‘¬‡
+bsquid:CommentedOutCodeLine["<This block of commented-out lines of code should be removed.(”íòç
+Bsquid:S19482"&Make "grid" transient or serializable.(£‡äïûÿÿÿÿ
+Isquid:S1135Y"2Complete the task associated to this TODO comment.(ñ–ôÿ
+>squid:S1948."'Make "model" transient or serializable.(û¡žï
+bsquid:CommentedOutCodeLineV"<This block of commented-out lines of code should be removed.(Òî×æ
+@squid:S19488"$Make "ml" transient or serializable.(•Èê§þÿÿÿÿ
+csquid:CommentedOutCodeLine¡"<This block of commented-out lines of code should be removed.(ªìÖ
