@@ -6,6 +6,7 @@
 package jdraw.std;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -29,7 +30,7 @@ public class StdDrawModel implements DrawModel {
     /**
      * Notify all Listeners about a change
      *
-     * @param f figure
+     * @param f    figure
      * @param type eventtype
      */
     private void notifyListener(Figure f, DrawModelEvent.Type type) {
@@ -52,7 +53,7 @@ public class StdDrawModel implements DrawModel {
 
     @Override
     public void removeFigure(Figure f) {
-        if(!figures.contains(f)) {
+        if (!figures.contains(f)) {
             throw new IllegalArgumentException("This figure does not exists in the list");
         }
         figures.remove(f);
@@ -61,14 +62,12 @@ public class StdDrawModel implements DrawModel {
 
     @Override
     public void addModelChangeListener(DrawModelListener listener) {
-        // TODO to be implemented
-        //System.out.println("StdDrawModel.addModelChangeListener has to be implemented");
         listeners.add(listener);
     }
 
     @Override
     public void removeModelChangeListener(DrawModelListener listener) {
-        if(!listeners.contains(listener)){
+        if (!listeners.contains(listener)) {
             throw new IllegalArgumentException("This listener does not exist");
         }
         listeners.remove(listener);
@@ -93,7 +92,7 @@ public class StdDrawModel implements DrawModel {
 
     @Override
     public void setFigureIndex(Figure f, int index) {
-        if(!figures.contains(f)){
+        if (!figures.contains(f)) {
             throw new IllegalArgumentException("This figure does not exist");
         }
         figures.remove(f);
@@ -101,10 +100,12 @@ public class StdDrawModel implements DrawModel {
         notifyListener(f, DrawModelEvent.Type.FIGURE_CHANGED);
     }
 
-    //FIXME
+
     @Override
     public void removeAllFigures() {
-        figures.forEach(f -> removeFigure(f));
+        figures.forEach(f -> f.removeFigureListener(figureListener));
+        figures.clear();
+        notifyListener(null, DrawModelEvent.Type.DRAWING_CLEARED);
     }
 
 }
