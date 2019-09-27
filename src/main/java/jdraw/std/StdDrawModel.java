@@ -53,9 +53,9 @@ public class StdDrawModel implements DrawModel {
 
     @Override
     public void removeFigure(Figure f) {
-        if (!figures.contains(f)) {
-            throw new IllegalArgumentException("This figure does not exists in the list");
-        }
+        if(!figures.contains(f)) throw new IllegalArgumentException("Figure does not exist in model");
+
+        f.removeFigureListener(figureListener);
         figures.remove(f);
         notifyListener(f, DrawModelEvent.Type.FIGURE_REMOVED);
     }
@@ -67,9 +67,7 @@ public class StdDrawModel implements DrawModel {
 
     @Override
     public void removeModelChangeListener(DrawModelListener listener) {
-        if (!listeners.contains(listener)) {
-            throw new IllegalArgumentException("This listener does not exist");
-        }
+
         listeners.remove(listener);
     }
 
@@ -93,11 +91,11 @@ public class StdDrawModel implements DrawModel {
     @Override
     public void setFigureIndex(Figure f, int index) {
         if (!figures.contains(f)) {
-            throw new IllegalArgumentException("This figure does not exist");
+            throw new IllegalArgumentException("Figure cannot be found in list");
         }
         figures.remove(f);
         figures.add(index, f);
-        notifyListener(f, DrawModelEvent.Type.FIGURE_CHANGED);
+        notifyListener(f, DrawModelEvent.Type.DRAWING_CHANGED);
     }
 
 
