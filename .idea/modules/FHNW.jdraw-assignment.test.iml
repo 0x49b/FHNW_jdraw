@@ -13,7 +13,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="workspace.jdraw-assignment.main" />
+    <orderEntry type="module" module-name="FHNW.jdraw-assignment.main" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-context:4.3.19.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Gradle: org.junit.jupiter:junit-jupiter:5.4.2" level="project" />

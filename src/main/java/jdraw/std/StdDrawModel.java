@@ -5,13 +5,12 @@
 
 package jdraw.std;
 
+import jdraw.framework.*;
+
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
-
-import jdraw.framework.*;
 
 /**
  * Provide a standard behavior for the drawing model. This class initially does not implement the methods
@@ -53,7 +52,8 @@ public class StdDrawModel implements DrawModel {
 
     @Override
     public void removeFigure(Figure f) {
-        if(!figures.contains(f)) throw new IllegalArgumentException("Figure does not exist in model");
+
+        if (!figures.contains(f)) return;
 
         f.removeFigureListener(figureListener);
         figures.remove(f);
@@ -93,9 +93,14 @@ public class StdDrawModel implements DrawModel {
         if (!figures.contains(f)) {
             throw new IllegalArgumentException("Figure cannot be found in list");
         }
-        figures.remove(f);
-        figures.add(index, f);
-        notifyListener(f, DrawModelEvent.Type.DRAWING_CHANGED);
+
+        if (index > figures.size() - 1 || index < 0) {
+            throw new IndexOutOfBoundsException("Index is not in figures");
+        } else {
+            figures.remove(f);
+            figures.add(index, f);
+            notifyListener(f, DrawModelEvent.Type.DRAWING_CHANGED);
+        }
     }
 
 
