@@ -110,12 +110,7 @@ public class Rect implements Figure {
      * Notify all registered Listeners
      */
     private void notifyListeners(FigureEvent e) {
-
-        for (FigureListener fl : listeners) {
-            fl.figureChanged(e);
-        }
-
-        //listeners.forEach(e -> e.figureChanged(new FigureEvent(this)));
+        listeners.forEach(fl -> fl.figureChanged(e));
     }
 
 }
