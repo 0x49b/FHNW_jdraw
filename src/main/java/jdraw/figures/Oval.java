@@ -52,25 +52,27 @@ public class Oval implements Figure {
      */
     @Override
     public void draw(Graphics g) {
-        g.setColor(Color.WHITE);
-        g.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-        g.setColor(Color.RED);
-        g.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-        g.draw(oval);
+        Graphics2D g2 = (Graphics2D) g;
+
+        g2.setColor(Color.WHITE);
+        //g.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+        g2.setColor(Color.RED);
+        //g.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+        g2.draw(oval);
     }
 
     @Override
     public void setBounds(Point origin, Point corner) {
-        rectangle.setFrameFromDiagonal(origin, corner);
+        oval.setFrameFromDiagonal(origin, corner);
         notifyListeners(new FigureEvent(this));
     }
 
     @Override
     public void move(int dx, int dy) {
-        rectangle.setLocation(rectangle.x + dx, rectangle.y + dy);
+        /*oval.setLocation(oval.x + dx, rectangle.y + dy);
         if (dx != 0 || dy != 0) {
             notifyListeners(new FigureEvent(this));
-        }
+        }*/
     }
 
     // Todo reimplement
