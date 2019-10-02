@@ -51,11 +51,8 @@ public class Ellipse implements Figure {
     @Override
     public void draw(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-
-        g2.setColor(Color.WHITE);
-        //g.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+        g2.setBackground(Color.WHITE);
         g2.setColor(Color.RED);
-        //g.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
         g2.draw(ellipse);
     }
 
@@ -67,10 +64,10 @@ public class Ellipse implements Figure {
 
     @Override
     public void move(int dx, int dy) {
-        /*ellipse.setLocation(ellipse.x + dx, rectangle.y + dy);
+        ellipse.setFrame(ellipse.getX() +dx,ellipse.getY() +dy, ellipse.getWidth(), ellipse.getHeight() );
         if (dx != 0 || dy != 0) {
             notifyListeners(new FigureEvent(this));
-        }*/
+        }
     }
 
     // Todo reimplement

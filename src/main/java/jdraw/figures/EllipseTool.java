@@ -18,7 +18,7 @@ import java.awt.event.MouseEvent;
  *
  * @see jdraw.framework.Figure
  *
- * @author  Christoph Denzler
+ * @author  Florian Thiévent
  */
 public class EllipseTool implements DrawTool {
 
@@ -78,7 +78,7 @@ public class EllipseTool implements DrawTool {
 	 */
 	@Override
 	public void activate() {
-		this.context.showStatusText("Rectangle Mode");
+		this.context.showStatusText("Ellipse Mode");
 	}
 
 	/**
