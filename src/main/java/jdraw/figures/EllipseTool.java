@@ -20,7 +20,7 @@ import java.awt.event.MouseEvent;
  *
  * @author  Christoph Denzler
  */
-public class OvalTool implements DrawTool {
+public class EllipseTool implements DrawTool {
 
 	/**
 	 * the image resource path.
@@ -43,7 +43,7 @@ public class OvalTool implements DrawTool {
 	 * mouse down - mouse drag - mouse up cycle) this variable refers
 	 * to the new rectangle that is inserted.
 	 */
-	private Oval newOval = null;
+	private Ellipse newEllipse = null;
 
 	/**
 	 * Temporary variable.
@@ -56,7 +56,7 @@ public class OvalTool implements DrawTool {
 	 * Create a new rectangle tool for the given context.
 	 * @param context a context to use this tool in.
 	 */
-	public OvalTool(DrawContext context) {
+	public EllipseTool(DrawContext context) {
 		this.context = context;
 		this.view = context.getView();
 	}
@@ -93,12 +93,12 @@ public class OvalTool implements DrawTool {
 	 */
 	@Override
 	public void mouseDown(int x, int y, MouseEvent e) {
-		if (newOval != null) {
+		if (newEllipse != null) {
 			throw new IllegalStateException();
 		}
 		anchor = new Point(x, y);
-		newOval = new Oval(x, y, 0, 0);
-		view.getModel().addFigure(newOval);
+		newEllipse = new Ellipse(x, y, 0, 0);
+		view.getModel().addFigure(newEllipse);
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class OvalTool implements DrawTool {
 	 */
 	@Override
 	public void mouseDrag(int x, int y, MouseEvent e) {
-		newOval.setBounds(anchor, new Point(x, y));
-		java.awt.Rectangle r = newOval.getBounds();
+		newEllipse.setBounds(anchor, new Point(x, y));
+		java.awt.Rectangle r = newEllipse.getBounds();
 		this.context.showStatusText("w: " + r.width + ", h: " + r.height);
 	}
 
@@ -132,9 +132,9 @@ public class OvalTool implements DrawTool {
 	 */
 	@Override
 	public void mouseUp(int x, int y, MouseEvent e) {
-		newOval = null;
+		newEllipse = null;
 		anchor = null;
-		this.context.showStatusText("Oval Mode");
+		this.context.showStatusText("Ellipse Mode");
 	}
 
 	@Override
@@ -144,12 +144,12 @@ public class OvalTool implements DrawTool {
 	
 	@Override
 	public Icon getIcon() {
-		return new ImageIcon(getClass().getResource(IMAGES + "oval.png"));
+		return new ImageIcon(getClass().getResource(IMAGES + "ellipse.png"));
 	}
 
 	@Override
 	public String getName() {
-		return "Oval";
+		return "Ellipse";
 	}
 
 }

@@ -42,7 +42,7 @@
 
 	<bean id="oval" class="jdraw.figures.OvalToolFactory">
 		<property name="name"><value>Oval</value></property>
-		<property name="iconName"><value>oval.png</value></property>
+		<property name="iconName"><value>ellipse.png</value></property>
 	</bean>
 -->
 

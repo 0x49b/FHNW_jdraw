@@ -1,3 +1,4 @@
+
 /*
  * Copyright (c) 2018 Fachhochschule Nordwestschweiz (FHNW)
  * All Rights Reserved.
@@ -16,39 +17,36 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- * Represents rectangles in JDraw.
+ * Represents Ellipsis in JDraw.
  *
- * @author Christoph Denzler
+ * @author Florian Thiévent
  */
-public class Oval implements Figure {
+public class Ellipse implements Figure {
     private static final long serialVersionUID = 9120181044386552132L;
 
     private CopyOnWriteArrayList<FigureListener> listeners = new CopyOnWriteArrayList<>();
 
-
     /**
-     * Use the java.awt.Rectangle in order to save/reuse code.
+     * Using java.awt.Ellipse2D to represent te ellipse
      */
-    //private final Rectangle rectangle;
-    private final Ellipse2D oval;
+    private final Ellipse2D ellipse;
 
     /**
-     * Create a new rectangle of the given dimension.
+     * Create a new Ellipse2D of the given dimension.
      *
-     * @param x the x-coordinate of the upper left corner of the rectangle
-     * @param y the y-coordinate of the upper left corner of the rectangle
-     * @param w the rectangle's width
-     * @param h the rectangle's height
+     * @param x the x-coordinate (top left)
+     * @param y the y-coordinate (top left)
+     * @param w the ellipse's width
+     * @param h the ellipse's height
      */
-    public Oval(int x, int y, int w, int h) {
-        //rectangle = new Rectangle(x, y, w, h);
-        oval = new Ellipse2D.Double(x,y,w,h);
+    public Ellipse(int x, int y, int w, int h) {
+        ellipse = new Ellipse2D.Double(x,y,w,h);
     }
 
     /**
-     * Draw the rectangle to the given graphics context.
+     * Draw the ellipse to the given graphic context.
      *
-     * @param g the graphics context to use for drawing.
+     * @param g the graphics context to use for drawing.Will be cast to Graphics2D
      */
     @Override
     public void draw(Graphics g) {
@@ -58,18 +56,18 @@ public class Oval implements Figure {
         //g.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
         g2.setColor(Color.RED);
         //g.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-        g2.draw(oval);
+        g2.draw(ellipse);
     }
 
     @Override
     public void setBounds(Point origin, Point corner) {
-        oval.setFrameFromDiagonal(origin, corner);
+        ellipse.setFrameFromDiagonal(origin, corner);
         notifyListeners(new FigureEvent(this));
     }
 
     @Override
     public void move(int dx, int dy) {
-        /*oval.setLocation(oval.x + dx, rectangle.y + dy);
+        /*ellipse.setLocation(ellipse.x + dx, rectangle.y + dy);
         if (dx != 0 || dy != 0) {
             notifyListeners(new FigureEvent(this));
         }*/
@@ -78,12 +76,12 @@ public class Oval implements Figure {
     // Todo reimplement
     @Override
     public boolean contains(int x, int y) {
-        return oval.contains(x, y);
+        return ellipse.contains(x, y);
     }
 
     @Override
     public Rectangle getBounds() {
-        return oval.getBounds();
+        return ellipse.getBounds();
     }
 
     /**
