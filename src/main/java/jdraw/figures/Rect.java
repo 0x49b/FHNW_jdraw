@@ -23,6 +23,8 @@ public class Rect implements Figure {
     private static final long serialVersionUID = 9120181044386552132L;
 
     private CopyOnWriteArrayList<FigureListener> listeners = new CopyOnWriteArrayList<>();
+    // XXX genau, auch im DrawModel würde ich mit einer CopyOnWriteArrayList arbeiten.
+    // XXX ich würde aber den Typ als List deklarieren.
 
 
     /**
@@ -58,7 +60,7 @@ public class Rect implements Figure {
     @Override
     public void setBounds(Point origin, Point corner) {
         rectangle.setFrameFromDiagonal(origin, corner);
-        notifyListeners(new FigureEvent(this));
+        notifyListeners(new FigureEvent(this)); // XXX nur falls es wirklcih eine Änderung war.
     }
 
     @Override

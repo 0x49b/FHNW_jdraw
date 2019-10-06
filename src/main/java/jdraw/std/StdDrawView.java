@@ -86,8 +86,8 @@ public final class StdDrawView extends JComponent implements DrawView {
 //				if(e.getType() == DrawModelEvent.Type.FIGURE_ADDED
 //				 || e.getType() == DrawModelEvent.Type.FIGURE_REMOVED
 //				) {
-//					// TODO add the bounds of all the handles to the redraw-bound as well.
-//					//      Problem: Handles do not have bounds.
+//					// add the bounds of all the handles to the redraw-bound as well.
+//					// Problem: Handles do not have bounds.
 //					repaint(e.getFigure().getBounds());
 //				} else {
 //					repaint();

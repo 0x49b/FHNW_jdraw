@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="FHNW.jdraw-assignment.main" target="11" />
       <module name="FHNW.jdraw-assignment.test" target="11" />
+      <module name="jdraw-thievent.main" target="11" />
+      <module name="jdraw-thievent.test" target="11" />
       <module name="workspace.jdraw-assignment.main" target="11" />
       <module name="workspace.jdraw-assignment.test" target="11" />
     </bytecodeTargetLevel>

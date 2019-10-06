@@ -22,6 +22,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * @author Florian Thiévent
  */
 public class Ellipse implements Figure {
+	// XXX hier gelten dieselben Bemerkungen wie bei der Klasse Rect. Wenn Sie dann in U3 eine abstrakte Basisklasse einziehen dann können sie die Fehler gerade dort korrigieren, dann gilt das für alle von dieser Klasse abgeleiteten Figuren.
+	
     private static final long serialVersionUID = 9120181044386552132L;
 
     private CopyOnWriteArrayList<FigureListener> listeners = new CopyOnWriteArrayList<>();

@@ -17,11 +17,11 @@ import java.util.stream.Stream;
  * in a proper way.
  * It is part of the course assignments to do so.
  *
- * @author TODO add your name here
+ * @author TODO Florian Thiévent
  */
 public class StdDrawModel implements DrawModel {
 
-    private LinkedList<Figure> figures = new LinkedList<>();
+    private final LinkedList<Figure> figures = new LinkedList<>();
     private List<DrawModelListener> listeners = new ArrayList<>();
     private FigureListener figureListener = e -> notifyListener(e.getFigure(), DrawModelEvent.Type.DRAWING_CHANGED);
 
@@ -33,7 +33,9 @@ public class StdDrawModel implements DrawModel {
      * @param type eventtype
      */
     private void notifyListener(Figure f, DrawModelEvent.Type type) {
-        listeners.forEach(e -> e.modelChanged(new DrawModelEvent(this, f, type)));
+        DrawModelEvent dme = new DrawModelEvent(this, f, type);
+        listeners.forEach(e -> e.modelChanged(dme));
+        // XXX das listeners.forEach führt zu einer CME wenn sich ein Listener während der Notifikation an- oder abmeldet.
     }
 
 

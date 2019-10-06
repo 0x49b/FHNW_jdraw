@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FHNW.jdraw-assignment.iml" filepath="$PROJECT_DIR$/.idea/modules/FHNW.jdraw-assignment.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FHNW.jdraw-assignment.main.iml" filepath="$PROJECT_DIR$/.idea/modules/FHNW.jdraw-assignment.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FHNW.jdraw-assignment.test.iml" filepath="$PROJECT_DIR$/.idea/modules/FHNW.jdraw-assignment.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jdraw-assignment.iml" filepath="$PROJECT_DIR$/.idea/modules/jdraw-assignment.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jdraw-assignment.main.iml" filepath="$PROJECT_DIR$/.idea/modules/jdraw-assignment.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jdraw-assignment.test.iml" filepath="$PROJECT_DIR$/.idea/modules/jdraw-assignment.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jdraw-thievent.iml" filepath="$PROJECT_DIR$/.idea/modules/jdraw-thievent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jdraw-thievent.main.iml" filepath="$PROJECT_DIR$/.idea/modules/jdraw-thievent.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jdraw-thievent.test.iml" filepath="$PROJECT_DIR$/.idea/modules/jdraw-thievent.test.iml" />
     </modules>
   </component>
 </project>
