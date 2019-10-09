@@ -10,6 +10,7 @@ import jdraw.framework.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Stream;
 
 /**
@@ -22,7 +23,7 @@ import java.util.stream.Stream;
 public class StdDrawModel implements DrawModel {
 
     private final LinkedList<Figure> figures = new LinkedList<>();
-    private List<DrawModelListener> listeners = new ArrayList<>();
+    private CopyOnWriteArrayList<DrawModelListener> listeners = new CopyOnWriteArrayList<>();
     private FigureListener figureListener = e -> notifyListener(e.getFigure(), DrawModelEvent.Type.DRAWING_CHANGED);
 
 
