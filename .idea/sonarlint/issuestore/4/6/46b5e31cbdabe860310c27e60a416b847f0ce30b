@@ -1,12 +1,0 @@
-
-esquid:MaximumInheritanceDepth#"<This class has 7 parents which is greater than 5 authorized.(ë€Ïë
-Isquid:S1612´",Replace this lambda with a method reference.(é÷×¬þÿÿÿÿ
-Csquid:S1602}",Remove useless curly braces around statement(îÇŽ
-Isquid:S1612Ä",Replace this lambda with a method reference.(é÷×¬þÿÿÿÿ
-U
-squid:S106à"9Replace this use of System.out or System.err by a logger.(¿³„³üÿÿÿÿ
-P
-squid:S106ü"9Replace this use of System.out or System.err by a logger.(Óä
-Csquid:S1602x",Remove useless curly braces around statement(Š‚ø‚
-Hsquid:S1602g",Remove useless curly braces around statement(Ôé¢Ãúÿÿÿÿ
-Osquid:S1135§"2Complete the task associated to this TODO comment.(¶öˆÌýÿÿÿÿ

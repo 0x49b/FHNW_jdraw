@@ -1,20 +1,0 @@
-
-jsquid:S2975%"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(‰¹Ïğ
-”squid:S1192œ"|Define a constant instead of duplicating this literal "the listener which has been registered must also be removed" 3 times.(ä¼ş×
-squid:S1192ˆ"rDefine a constant instead of duplicating this literal "listeners registered by the model must be removed" 4 times.(ÇæØıÿÿÿÿ
-\squid:HiddenFieldCheckh"5Rename "f" which hides the field declared at line 41.(¿âááşÿÿÿÿ
-\squid:HiddenFieldCheck{"5Rename "f" which hides the field declared at line 41.(¿âááşÿÿÿÿ
-]squid:HiddenFieldCheck"5Rename "f" which hides the field declared at line 41.(¿âááşÿÿÿÿ
-]squid:HiddenFieldCheck‹"5Rename "f" which hides the field declared at line 41.(Å™ğİüÿÿÿÿ
-]squid:HiddenFieldCheckœ"5Rename "f" which hides the field declared at line 41.(Å™ğİüÿÿÿÿ
-0squid:S2225%"Return a non null object.(‰¹Ïğ
-Gsquid:S1168""+Return an empty collection instead of null.(‹Û·íüÿÿÿÿ
-Isquid:S1602ù",Remove useless curly braces around statement(ˆ‰Êúÿÿÿÿ
-Isquid:S1602†",Remove useless curly braces around statement(–õÆıÿÿÿÿ
-Isquid:S1602—",Remove useless curly braces around statement(–õÆıÿÿÿÿ
-squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(úÂôĞúÿÿÿÿ
-˜squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(å…‹²
-˜squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(°ã¨
-squid:S1186#"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ˆØ‘Íşÿÿÿÿ
-squid:S1186$"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ò»¿£ıÿÿÿÿ
-_squid:S1182%"HUse super.clone() to create and seed the cloned instance to be returned.(‰¹Ïğ
