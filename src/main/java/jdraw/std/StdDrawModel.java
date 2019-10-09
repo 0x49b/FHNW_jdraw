@@ -18,7 +18,7 @@ import java.util.stream.Stream;
  * in a proper way.
  * It is part of the course assignments to do so.
  *
- * @author TODO Florian Thiévent
+ * @author Florian Thiévent
  */
 public class StdDrawModel implements DrawModel {
 
