@@ -19,12 +19,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
  *
  * @author Christoph Denzler
  */
-public class Rect implements Figure {
-    private static final long serialVersionUID = 9120181044386552132L;
+public class Rect extends AbstractFigure {
 
+    private static final long serialVersionUID = 9120181044386552132L;
     private CopyOnWriteArrayList<FigureListener> listeners = new CopyOnWriteArrayList<>();
-    // XXX genau, auch im DrawModel würde ich mit einer CopyOnWriteArrayList arbeiten.
-    // XXX ich würde aber den Typ als List deklarieren.
 
 
     /**
@@ -90,29 +88,6 @@ public class Rect implements Figure {
     @Override
     public List<FigureHandle> getHandles() {
         return null;
-    }
-
-    @Override
-    public void addFigureListener(FigureListener listener) {
-        listeners.add(listener);
-
-    }
-
-    @Override
-    public void removeFigureListener(FigureListener listener) {
-        listeners.remove(listener);
-    }
-
-    @Override
-    public Figure clone() {
-        return null;
-    }
-
-    /**
-     * Notify all registered Listeners
-     */
-    private void notifyListeners(FigureEvent e) {
-        listeners.forEach(fl -> fl.figureChanged(e));
     }
 
 }
