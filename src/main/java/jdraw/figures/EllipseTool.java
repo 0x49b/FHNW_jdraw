@@ -1,155 +1,102 @@
 /*
  * Copyright (c) 2018 Fachhochschule Nordwestschweiz (FHNW)
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 
 package jdraw.figures;
 
 import jdraw.framework.DrawContext;
 import jdraw.framework.DrawTool;
-import jdraw.framework.DrawView;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
 /**
  * This tool defines a mode for drawing rectangles.
  *
+ * @author Florian Thiévent
  * @see jdraw.framework.Figure
- *
- * @author  Florian Thiévent
  */
-public class EllipseTool implements DrawTool {
+public class EllipseTool extends AbstractDrawTool {
 
-	/**
-	 * the image resource path.
-	 */
-	private static final String IMAGES = "/images/";
+    /**
+     * Temporary variable. During rectangle creation (during a
+     * mouse down - mouse drag - mouse up cycle) this variable refers
+     * to the new rectangle that is inserted.
+     */
+    private Ellipse newEllipse = null;
 
-	/**
-	 * The context we use for drawing.
-	 */
-	private final DrawContext context;
+    /**
+     * Create a new rectangle tool for the given context.
+     *
+     * @param context a context to use this tool in.
+     */
+    public EllipseTool(DrawContext context) {
+        super(context);
+    }
 
-	/**
-	 * The context's view. This variable can be used as a shortcut, i.e.
-	 * instead of calling context.getView().
-	 */
-	private final DrawView view;
+    /**
+     * Initializes a new Rectangle object by setting an anchor
+     * point where the mouse was pressed. A new Rectangle is then
+     * added to the model.
+     *
+     * @param x x-coordinate of mouse
+     * @param y y-coordinate of mouse
+     * @param e event containing additional information about which keys were pressed.
+     * @see DrawTool#mouseDown(int, int, MouseEvent)
+     */
+    @Override
+    public void mouseDown(int x, int y, MouseEvent e) {
+        if (newEllipse != null) {
+            throw new IllegalStateException();
+        }
+        anchor = new Point(x, y);
+        newEllipse = new Ellipse(x, y, 0, 0);
+        view.getModel().addFigure(newEllipse);
+    }
 
-	/**
-	 * Temporary variable. During rectangle creation (during a
-	 * mouse down - mouse drag - mouse up cycle) this variable refers
-	 * to the new rectangle that is inserted.
-	 */
-	private Ellipse newEllipse = null;
+    /**
+     * During a mouse drag, the Rectangle will be resized according to the mouse
+     * position. The status bar shows the current size.
+     *
+     * @param x x-coordinate of mouse
+     * @param y y-coordinate of mouse
+     * @param e event containing additional information about which keys were
+     *          pressed.
+     * @see DrawTool#mouseDrag(int, int, MouseEvent)
+     */
+    @Override
+    public void mouseDrag(int x, int y, MouseEvent e) {
+        newEllipse.setBounds(anchor, new Point(x, y));
+        java.awt.Rectangle r = newEllipse.getBounds();
+        this.context.showStatusText("w: " + r.width + ", h: " + r.height);
+    }
 
-	/**
-	 * Temporary variable.
-	 * During rectangle creation this variable refers to the point the
-	 * mouse was first pressed.
-	 */
-	private Point anchor = null;
+    /**
+     * When the user releases the mouse, the Rectangle object is updated
+     * according to the color and fill status settings.
+     *
+     * @param x x-coordinate of mouse
+     * @param y y-coordinate of mouse
+     * @param e event containing additional information about which keys were
+     *          pressed.
+     * @see DrawTool#mouseUp(int, int, MouseEvent)
+     */
+    @Override
+    public void mouseUp(int x, int y, MouseEvent e) {
+        newEllipse = null;
+        anchor = null;
+        this.context.showStatusText("Ellipse Mode");
+    }
 
-	/**
-	 * Create a new rectangle tool for the given context.
-	 * @param context a context to use this tool in.
-	 */
-	public EllipseTool(DrawContext context) {
-		this.context = context;
-		this.view = context.getView();
-	}
+    @Override
+    public String getName() {
+        return "Ellipse";
+    }
 
-	/**
-	 * Deactivates the current mode by resetting the cursor
-	 * and clearing the status bar.
-	 * @see DrawTool#deactivate()
-	 */
-	@Override
-	public void deactivate() {
-		this.context.showStatusText("");
-	}
-
-	/**
-	 * Activates the Rectangle Mode. There will be a
-	 * specific menu added to the menu bar that provides settings for
-	 * Rectangle attributes
-	 */
-	@Override
-	public void activate() {
-		this.context.showStatusText("Ellipse Mode");
-	}
-
-	/**
-	 * Initializes a new Rectangle object by setting an anchor
-	 * point where the mouse was pressed. A new Rectangle is then
-	 * added to the model.
-	 * @param x x-coordinate of mouse
-	 * @param y y-coordinate of mouse
-	 * @param e event containing additional information about which keys were pressed.
-	 *
-	 * @see DrawTool#mouseDown(int, int, MouseEvent)
-	 */
-	@Override
-	public void mouseDown(int x, int y, MouseEvent e) {
-		if (newEllipse != null) {
-			throw new IllegalStateException();
-		}
-		anchor = new Point(x, y);
-		newEllipse = new Ellipse(x, y, 0, 0);
-		view.getModel().addFigure(newEllipse);
-	}
-
-	/**
-	 * During a mouse drag, the Rectangle will be resized according to the mouse
-	 * position. The status bar shows the current size.
-	 *
-	 * @param x   x-coordinate of mouse
-	 * @param y   y-coordinate of mouse
-	 * @param e   event containing additional information about which keys were
-	 *            pressed.
-	 *
-	 * @see DrawTool#mouseDrag(int, int, MouseEvent)
-	 */
-	@Override
-	public void mouseDrag(int x, int y, MouseEvent e) {
-		newEllipse.setBounds(anchor, new Point(x, y));
-		java.awt.Rectangle r = newEllipse.getBounds();
-		this.context.showStatusText("w: " + r.width + ", h: " + r.height);
-	}
-
-	/**
-	 * When the user releases the mouse, the Rectangle object is updated
-	 * according to the color and fill status settings.
-	 *
-	 * @param x   x-coordinate of mouse
-	 * @param y   y-coordinate of mouse
-	 * @param e   event containing additional information about which keys were
-	 *            pressed.
-	 *
-	 * @see DrawTool#mouseUp(int, int, MouseEvent)
-	 */
-	@Override
-	public void mouseUp(int x, int y, MouseEvent e) {
-		newEllipse = null;
-		anchor = null;
-		this.context.showStatusText("Ellipse Mode");
-	}
-
-	@Override
-	public Cursor getCursor() {
-		return Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR);
-	}
-	
-	@Override
-	public Icon getIcon() {
-		return new ImageIcon(getClass().getResource(IMAGES + "ellipse.png"));
-	}
-
-	@Override
-	public String getName() {
-		return "Ellipse";
-	}
+    @Override
+    public String getIconName() {
+        return "ellipse.png";
+    }
 
 }

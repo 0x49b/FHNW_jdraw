@@ -17,13 +17,11 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- * Represents Ellipsis in JDraw.
- *
+ * Represents Ellipse in JDraw.
  * @author Florian Thiévent
  */
-public class Ellipse implements Figure {
-	// XXX hier gelten dieselben Bemerkungen wie bei der Klasse Rect. Wenn Sie dann in U3 eine abstrakte Basisklasse einziehen dann können sie die Fehler gerade dort korrigieren, dann gilt das für alle von dieser Klasse abgeleiteten Figuren.
-	
+public class Ellipse extends AbstractFigure {
+
     private static final long serialVersionUID = 9120181044386552132L;
 
     private CopyOnWriteArrayList<FigureListener> listeners = new CopyOnWriteArrayList<>();
@@ -54,7 +52,7 @@ public class Ellipse implements Figure {
     public void draw(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         g2.setBackground(Color.WHITE);
-        g2.setColor(Color.RED);
+        g2.setColor(Color.BLACK);
         g2.draw(ellipse);
     }
 
@@ -92,29 +90,6 @@ public class Ellipse implements Figure {
     @Override
     public List<FigureHandle> getHandles() {
         return null;
-    }
-
-    @Override
-    public void addFigureListener(FigureListener listener) {
-        listeners.add(listener);
-
-    }
-
-    @Override
-    public void removeFigureListener(FigureListener listener) {
-        listeners.remove(listener);
-    }
-
-    @Override
-    public Figure clone() {
-        return null;
-    }
-
-    /**
-     * Notify all registered Listeners
-     */
-    private void notifyListeners(FigureEvent e) {
-        listeners.forEach(fl -> fl.figureChanged(e));
     }
 
 }
