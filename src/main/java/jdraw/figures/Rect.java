@@ -5,12 +5,15 @@
 
 package jdraw.figures;
 
+import jdraw.figures.handles.NorthHandle;
+import jdraw.figures.handles.NorthWestHandle;
 import jdraw.framework.Figure;
 import jdraw.framework.FigureEvent;
 import jdraw.framework.FigureHandle;
 import jdraw.framework.FigureListener;
 
 import java.awt.*;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -87,7 +90,12 @@ public class Rect extends AbstractFigure {
      */
     @Override
     public List<FigureHandle> getHandles() {
-        return null;
+
+        List<FigureHandle> handles = new LinkedList<>();
+        handles.add(new NorthWestHandle(this));
+        handles.add(new NorthHandle(this));
+
+        return handles;
     }
 
 }
