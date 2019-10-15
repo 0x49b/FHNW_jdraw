@@ -70,7 +70,6 @@ public class Ellipse extends AbstractFigure {
         }
     }
 
-    // Todo reimplement
     @Override
     public boolean contains(int x, int y) {
         return ellipse.contains(x, y);

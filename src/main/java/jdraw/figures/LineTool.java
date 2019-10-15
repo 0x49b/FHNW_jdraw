@@ -51,7 +51,7 @@ public class LineTool extends AbstractDrawTool {
             throw new IllegalStateException();
         }
         anchor = new Point(x, y);
-        newLine = new Line(x, y, 0, 0);
+        newLine = new Line(x, y, x, y);
         view.getModel().addFigure(newLine);
     }
 

@@ -5,6 +5,8 @@
 
 package jdraw.figures;
 
+import jdraw.figures.handles.EastHandle;
+import jdraw.figures.handles.NorthEastHandle;
 import jdraw.figures.handles.NorthHandle;
 import jdraw.figures.handles.NorthWestHandle;
 import jdraw.framework.Figure;
@@ -61,7 +63,7 @@ public class Rect extends AbstractFigure {
     @Override
     public void setBounds(Point origin, Point corner) {
         rectangle.setFrameFromDiagonal(origin, corner);
-        notifyListeners(new FigureEvent(this)); // XXX nur falls es wirklcih eine Änderung war.
+        notifyListeners(new FigureEvent(this));
     }
 
     @Override
@@ -94,6 +96,9 @@ public class Rect extends AbstractFigure {
         List<FigureHandle> handles = new LinkedList<>();
         handles.add(new NorthWestHandle(this));
         handles.add(new NorthHandle(this));
+        handles.add(new NorthEastHandle(this));
+        handles.add(new EastHandle(this));
+
 
         return handles;
     }

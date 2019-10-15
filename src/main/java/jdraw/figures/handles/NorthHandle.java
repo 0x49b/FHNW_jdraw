@@ -2,7 +2,6 @@ package jdraw.figures.handles;
 
 import jdraw.framework.DrawView;
 import jdraw.framework.Figure;
-import jdraw.framework.FigureHandle;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -12,56 +11,35 @@ import java.awt.event.MouseEvent;
  *
  * @author Florian Thiévent
  */
-public class NorthHandle implements FigureHandle {
-
-    Figure owner;
-
-    public NorthHandle(Figure figure) {
-        owner = figure;
-    }
-
-    @Override
-    public Figure getOwner() {
-        return owner;
+public class NorthHandle extends AbstractHandle {
+    public NorthHandle(Figure owner) {
+        super(owner);
     }
 
     @Override
     public Point getLocation() {
-        return owner.getBounds().getLocation();
-    }
-
-
-    @Override
-    public void draw(Graphics g) {
-        Point loc = getLocation();
-        g.setColor(Color.WHITE);
-        g.fillRect(loc.x + (owner.getBounds().width / 2) - 3, loc.y + (owner.getBounds().height / 2) - 3, 6, 6);
-        g.setColor(Color.BLACK);
-        g.drawRect(loc.x - 3, loc.y - 3, 6, 6);
+        Rectangle bounds = getOwner().getBounds();
+        return new Point(bounds.x + bounds.width / 2, bounds.y);
     }
 
     @Override
     public Cursor getCursor() {
-        return Cursor.getPredefinedCursor(Cursor.NW_RESIZE_CURSOR);
-    }
-
-    @Override
-    public boolean contains(int x, int y) {
-        return false;
-    }
-
-    @Override
-    public void startInteraction(int x, int y, MouseEvent e, DrawView v) {
-
+        return Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR);
     }
 
     @Override
     public void dragInteraction(int x, int y, MouseEvent e, DrawView v) {
+        if (null == getCorner()) {
+            return;
+        }
 
+        getOwner().setBounds(
+                new Point(
+                        getCorner().x - getOwner().getBounds().width,
+                        y
+                ),
+                getCorner()
+        );
     }
 
-    @Override
-    public void stopInteraction(int x, int y, MouseEvent e, DrawView v) {
-
-    }
 }

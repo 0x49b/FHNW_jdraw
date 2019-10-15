@@ -71,10 +71,18 @@ public class Line extends AbstractFigure {
         }
     }
 
-    // Todo reimplement
     @Override
     public boolean contains(int x, int y) {
-        return line.contains(x, y);
+
+        if ((int) line.getY1() == y) {
+            return line.getY2() == y;
+        }
+
+        if ((int) line.getX1() == x) {
+            return line.getX2() == x;
+        }
+
+        return ((int) line.getX1() - x) * ((int) line.getY1() - y) == (x - (int) line.getX2()) * (y - (int) line.getY2());
     }
 
     @Override
