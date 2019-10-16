@@ -6,6 +6,10 @@
 
 package jdraw.figures;
 
+import jdraw.figures.handles.EastHandle;
+import jdraw.figures.handles.NorthHandle;
+import jdraw.figures.handles.SouthHandle;
+import jdraw.figures.handles.WestHandle;
 import jdraw.framework.Figure;
 import jdraw.framework.FigureEvent;
 import jdraw.framework.FigureHandle;
@@ -13,6 +17,8 @@ import jdraw.framework.FigureListener;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -88,7 +94,15 @@ public class Ellipse extends AbstractFigure {
      */
     @Override
     public List<FigureHandle> getHandles() {
-        return null;
+
+        List<FigureHandle> handles = new LinkedList<>();
+
+        handles.add(new NorthHandle(this));
+        handles.add(new EastHandle(this));
+        handles.add(new SouthHandle(this));
+        handles.add(new WestHandle(this));
+
+        return handles;
     }
 
 }

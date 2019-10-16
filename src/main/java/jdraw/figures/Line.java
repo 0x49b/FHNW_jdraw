@@ -6,6 +6,7 @@
 
 package jdraw.figures;
 
+import jdraw.figures.handles.LineStartHandle;
 import jdraw.framework.Figure;
 import jdraw.framework.FigureEvent;
 import jdraw.framework.FigureHandle;
@@ -13,6 +14,7 @@ import jdraw.framework.FigureListener;
 
 import java.awt.*;
 import java.awt.geom.Line2D;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -98,7 +100,25 @@ public class Line extends AbstractFigure {
      */
     @Override
     public List<FigureHandle> getHandles() {
-        return null;
+
+        List<FigureHandle> handles = new LinkedList<>();
+        handles.add(new LineStartHandle(this));
+
+        return handles;
+    }
+
+    public Point getStartPoint(){
+        return  new Point(
+                (int) line.getX1(),
+                (int) line.getY1()
+        );
+    }
+
+    public Point getEndPoint(){
+        return  new Point(
+                (int) line.getX2(),
+                (int) line.getY2()
+        );
     }
 
 }

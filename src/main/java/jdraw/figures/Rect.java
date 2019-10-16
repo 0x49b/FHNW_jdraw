@@ -5,11 +5,7 @@
 
 package jdraw.figures;
 
-import jdraw.figures.handles.EastHandle;
-import jdraw.figures.handles.NorthEastHandle;
-import jdraw.figures.handles.NorthHandle;
-import jdraw.figures.handles.NorthWestHandle;
-import jdraw.framework.Figure;
+import jdraw.figures.handles.*;
 import jdraw.framework.FigureEvent;
 import jdraw.framework.FigureHandle;
 import jdraw.framework.FigureListener;
@@ -98,6 +94,10 @@ public class Rect extends AbstractFigure {
         handles.add(new NorthHandle(this));
         handles.add(new NorthEastHandle(this));
         handles.add(new EastHandle(this));
+        handles.add(new SouthEastHandle(this));
+        handles.add(new SouthHandle(this));
+        handles.add(new SouthWestHandle(this));
+        handles.add(new WestHandle(this));
 
 
         return handles;

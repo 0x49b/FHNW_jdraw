@@ -46,6 +46,7 @@ public abstract class AbstractHandle implements FigureHandle {
                 HANDLE_SIZE
         ).contains(x, y);
     }
+
     private Point getTopLeftPoint() {
         Point loc = getLocation();
 
@@ -56,9 +57,16 @@ public abstract class AbstractHandle implements FigureHandle {
 
         return new Point(loc.x + HANDLE_SIZE / 2, loc.y + HANDLE_SIZE / 2);
     }
+
+    /**
+     * Set the Origin Point of the Handle
+     * @param corner Point
+     */
     protected void setCorner(Point corner) {
         this.corner = corner;
     }
+
+
     protected Point getCorner() {
         return corner;
     }

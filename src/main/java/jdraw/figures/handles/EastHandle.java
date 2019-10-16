@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 /**
- * Represents the North Handle of a Figure
+ * Represents the East Handle of a Figure
  *
  * @author Florian Thiévent
  */
@@ -19,7 +19,7 @@ public class EastHandle extends AbstractHandle {
     @Override
     public Point getLocation() {
         Rectangle bounds = getOwner().getBounds();
-        return new Point(bounds.x + bounds.width, bounds.y + bounds.height/2);
+        return new Point(bounds.x + bounds.width, bounds.y + bounds.height / 2);
     }
 
     @Override
@@ -35,11 +35,11 @@ public class EastHandle extends AbstractHandle {
 
         //TODO correct implementation
         getOwner().setBounds(
+                getCorner(),
                 new Point(
                         getCorner().x - getOwner().getBounds().width,
                         y
-                ),
-                getCorner()
+                )
         );
     }
 

@@ -7,19 +7,21 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 /**
- * Represents the NorthEast Handle of a Figure
+ * Represents the LineStart Handle of a Figure
  *
  * @author Florian Thiévent
  */
-public class NorthEastHandle extends AbstractHandle {
-    public NorthEastHandle(Figure owner) {
+public class LineStartHandle extends AbstractHandle {
+    public LineStartHandle(Figure owner) {
         super(owner);
     }
 
     @Override
     public Point getLocation() {
         Rectangle bounds = getOwner().getBounds();
-        return new Point(bounds.x + bounds.width , bounds.y);
+
+
+        return new Point((int) getOwner().getBounds().getMinX(), (int) getOwner().getBounds().getMinY());
     }
 
     @Override

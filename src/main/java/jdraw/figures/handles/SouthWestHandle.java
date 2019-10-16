@@ -7,24 +7,24 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 /**
- * Represents the NorthEast Handle of a Figure
+ * Represents the SouthWest Handle of a Figure
  *
  * @author Florian Thiévent
  */
-public class NorthEastHandle extends AbstractHandle {
-    public NorthEastHandle(Figure owner) {
+public class SouthWestHandle extends AbstractHandle {
+    public SouthWestHandle(Figure owner) {
         super(owner);
     }
 
     @Override
     public Point getLocation() {
         Rectangle bounds = getOwner().getBounds();
-        return new Point(bounds.x + bounds.width , bounds.y);
+        return new Point(bounds.x, bounds.y + bounds.height);
     }
 
     @Override
     public Cursor getCursor() {
-        return Cursor.getPredefinedCursor(Cursor.NE_RESIZE_CURSOR);
+        return Cursor.getPredefinedCursor(Cursor.SW_RESIZE_CURSOR);
     }
 
     @Override
@@ -33,11 +33,12 @@ public class NorthEastHandle extends AbstractHandle {
             return;
         }
 
-        // TODO correct calcs
+        //TODO correct implementation
         getOwner().setBounds(
                 new Point(
-                        x,
-                        y),
+                        getCorner().x - getOwner().getBounds().width,
+                        y
+                ),
                 getCorner()
         );
     }

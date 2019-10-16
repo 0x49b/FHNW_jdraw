@@ -33,13 +33,7 @@ public class NorthHandle extends AbstractHandle {
             return;
         }
 
-        getOwner().setBounds(
-                new Point(
-                        getCorner().x - getOwner().getBounds().width,
-                        y
-                ),
-                getCorner()
-        );
+        getOwner().setBounds( new Point( getCorner().x - getOwner().getBounds().width, y ), getCorner() );
     }
 
 }
