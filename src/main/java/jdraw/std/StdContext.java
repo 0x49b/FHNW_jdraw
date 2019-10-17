@@ -8,6 +8,8 @@ import jdraw.figures.EllipseTool;
 import jdraw.figures.LineTool;
 import jdraw.figures.RectTool;
 import jdraw.framework.*;
+import jdraw.grid.GridSquare;
+import jdraw.grid.SimpleGrid;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
@@ -123,10 +125,26 @@ public class StdContext extends AbstractContext {
         editMenu.add(orderMenu);
 
         JMenu grid = new JMenu("Grid...");
-        grid.add("Grid 1");
-        grid.add("Grid 2");
-        grid.add("Grid 3");
+
+        JMenuItem simpleGrid = new JMenuItem("SimpleGrid");
+        simpleGrid.addActionListener(e -> getView().setGrid(new SimpleGrid()));
+
+        JMenuItem grid20 = new JMenuItem("Grid 20");
+        grid20.addActionListener(e -> getView().setGrid(new GridSquare(20)));
+
+        JMenuItem grid50 = new JMenuItem("Grid 50");
+        grid50.addActionListener(e -> getView().setGrid(new GridSquare(50)));
+
+        JMenuItem noGrid = new JMenuItem("No Grid");
+        noGrid.addActionListener(e -> getView().setGrid(null));
+
+        grid.add(simpleGrid);
+        grid.add(grid20);
+        grid.add(grid50);
+        grid.addSeparator();
+        grid.add(noGrid);
         editMenu.add(grid);
+
 
         return editMenu;
     }
