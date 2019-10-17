@@ -18,8 +18,8 @@ public class GridSquare implements DrawGrid {
     @Override
     public Point constrainPoint(Point p) {
         return new Point(
-                ((int) p.getX() + 10) / gridSize * gridSize,
-                ((int) p.getY() + 10) / gridSize * gridSize
+                ((int) p.getX() + (gridSize / 2)) / gridSize * gridSize,
+                ((int) p.getY() + (gridSize / 2)) / gridSize * gridSize
         );
     }
 
