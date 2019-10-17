@@ -35,12 +35,12 @@ public class GridSquare implements DrawGrid {
 
     @Override
     public void activate() {
-        logger.info("activated GridSquare with Size of " + gridSize);
+        logger.debug("activated GridSquare with Size of " + gridSize);
     }
 
     @Override
     public void deactivate() {
-        logger.info("deactivated GridSquare with Size of " + gridSize);
+        logger.debug("deactivated GridSquare with Size of " + gridSize);
     }
 
     @Override
