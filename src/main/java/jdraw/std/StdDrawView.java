@@ -164,7 +164,7 @@ public final class StdDrawView extends JComponent implements DrawView {
 		handles.stream().forEach(fh -> fh.draw(g));
 
 		if (selectionRectangle != null) {
-			g.setColor(Color.BLACK);
+			g.setColor(Color.BLUE);
 			g.drawRect(selectionRectangle.x, selectionRectangle.y,
 					selectionRectangle.width, selectionRectangle.height);
 		}

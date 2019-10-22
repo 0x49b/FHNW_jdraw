@@ -1,10 +1,8 @@
 package jdraw.figures.handles;
 
-import jdraw.framework.DrawView;
 import jdraw.framework.Figure;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
 
 /**
  * Represents the SouthEast Handle of a Figure
@@ -28,18 +26,11 @@ public class SouthEastHandle extends AbstractHandle {
     }
 
     @Override
-    public void dragInteraction(int x, int y, MouseEvent e, DrawView v) {
-        if (null == getCorner()) {
-            return;
-        }
-
-        //TODO correct implementation
+    public void interactionChanged(Point startPoint, Point endPoint) {
+        Rectangle bounds = getOwner().getBounds();
         getOwner().setBounds(
-                new Point(
-                        getCorner().x - getOwner().getBounds().width,
-                        y
-                ),
-                getCorner()
+                new Point(bounds.x, bounds.y),
+                new Point(endPoint.x, endPoint.y)
         );
     }
 

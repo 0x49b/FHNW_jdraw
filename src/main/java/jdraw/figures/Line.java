@@ -102,7 +102,8 @@ public class Line extends AbstractFigure {
     public List<FigureHandle> getHandles() {
 
         List<FigureHandle> handles = new LinkedList<>();
-        handles.add(new LineStartHandle(this));
+
+        //TODO Handles
 
         return handles;
     }

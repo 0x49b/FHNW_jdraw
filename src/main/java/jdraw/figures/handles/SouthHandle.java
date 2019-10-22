@@ -27,28 +27,8 @@ public class SouthHandle extends AbstractHandle {
         return Cursor.getPredefinedCursor(Cursor.S_RESIZE_CURSOR);
     }
 
-    @Override
+    /*@Override
     public void dragInteraction(int x, int y, MouseEvent e, DrawView v) {
-        /*if (null == getCorner()) {
-            return;
-        }
-
-        System.out.println("Corners X: " + getCorner().x + " Corners Y: " + getCorner().y);
-        System.out.println("Mouses X: " + e.getX() + " Mouses Y: " + e.getY());
-        System.out.println("Difference Mouse - corner Y: " + (getCorner().y - e.getY()));
-
-        Rectangle bounds = getOwner().getBounds();
-
-        //TODO correct implementation
-        getOwner().setBounds(
-
-                getCorner(),
-                new Point(
-                        bounds.x,
-                        bounds.height + (bounds.height - e.getY())
-                )
-        );*/
-
         Rectangle r = getOwner().getBounds();
 
         getOwner().setBounds(new Point(r.x, y),
@@ -57,6 +37,15 @@ public class SouthHandle extends AbstractHandle {
         if (y < r.y) {
             // todo implement a swap method --> State Pattern?!?
         }
+    }*/
+
+    @Override
+    public void interactionChanged(Point startPoint, Point endPoint) {
+        Rectangle bounds = getOwner().getBounds();
+        getOwner().setBounds(
+                new Point(bounds.x, bounds.y),
+                new Point(endPoint.x + bounds.width, endPoint.y)
+        );
     }
 
 }

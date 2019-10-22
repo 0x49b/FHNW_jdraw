@@ -90,15 +90,8 @@ public class Rect extends AbstractFigure {
     public List<FigureHandle> getHandles() {
 
         List<FigureHandle> handles = new LinkedList<>();
-        handles.add(new NorthWestHandle(this));
-        handles.add(new NorthHandle(this));
-        handles.add(new NorthEastHandle(this));
-        handles.add(new EastHandle(this));
-        handles.add(new SouthEastHandle(this));
-        handles.add(new SouthHandle(this));
-        handles.add(new SouthWestHandle(this));
-        handles.add(new WestHandle(this));
 
+        //TODO Handles
 
         return handles;
     }

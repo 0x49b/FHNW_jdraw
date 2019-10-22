@@ -97,10 +97,7 @@ public class Ellipse extends AbstractFigure {
 
         List<FigureHandle> handles = new LinkedList<>();
 
-        handles.add(new NorthHandle(this));
-        handles.add(new EastHandle(this));
-        handles.add(new SouthHandle(this));
-        handles.add(new WestHandle(this));
+        //TODO Handles
 
         return handles;
     }

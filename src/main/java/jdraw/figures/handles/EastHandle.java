@@ -2,6 +2,8 @@ package jdraw.figures.handles;
 
 import jdraw.framework.DrawView;
 import jdraw.framework.Figure;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -12,6 +14,8 @@ import java.awt.event.MouseEvent;
  * @author Florian Thiévent
  */
 public class EastHandle extends AbstractHandle {
+    private final Logger logger = LogManager.getLogger(EastHandle.class);
+
     public EastHandle(Figure owner) {
         super(owner);
     }
@@ -27,19 +31,17 @@ public class EastHandle extends AbstractHandle {
         return Cursor.getPredefinedCursor(Cursor.E_RESIZE_CURSOR);
     }
 
+
     @Override
     public void dragInteraction(int x, int y, MouseEvent e, DrawView v) {
-        if (null == getCorner()) {
-            return;
-        }
 
-        //TODO correct implementation
+        Rectangle bounds = getOwner().getBounds();
+
+        logger.debug("X/Y: " + x + "/" + y + "  boundsx : "+bounds.x+"  width:" + bounds.width);
+
         getOwner().setBounds(
-                getCorner(),
-                new Point(
-                        getCorner().x - getOwner().getBounds().width,
-                        y
-                )
+                new Point(bounds.x, bounds.y),
+                new Point(bounds.x + bounds.width, bounds.y + bounds.height)
         );
     }
 

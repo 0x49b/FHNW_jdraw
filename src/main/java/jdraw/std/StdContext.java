@@ -132,6 +132,9 @@ public class StdContext extends AbstractContext {
         JMenuItem grid20 = new JMenuItem("Grid 20");
         grid20.addActionListener(e -> getView().setGrid(new GridSquare(20)));
 
+        JMenuItem grid30 = new JMenuItem("Grid 30");
+        grid30.addActionListener(e -> getView().setGrid(new GridSquare(30)));
+
         JMenuItem grid50 = new JMenuItem("Grid 50");
         grid50.addActionListener(e -> getView().setGrid(new GridSquare(50)));
 
@@ -140,6 +143,7 @@ public class StdContext extends AbstractContext {
 
         grid.add(simpleGrid);
         grid.add(grid20);
+        grid.add(grid30);
         grid.add(grid50);
         grid.addSeparator();
         grid.add(noGrid);

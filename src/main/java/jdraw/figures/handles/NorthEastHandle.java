@@ -35,10 +35,11 @@ public class NorthEastHandle extends AbstractHandle {
 
         // TODO correct calcs
         getOwner().setBounds(
+                getCorner(),
                 new Point(
                         x,
-                        y),
-                getCorner()
+                        y)
+
         );
     }
 
