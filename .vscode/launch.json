@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - JDraw",
+            "request": "launch",
+            "mainClass": "jdraw.JDraw",
+            "projectName": "jdraw-assignment"
+        }
+    ]
+}

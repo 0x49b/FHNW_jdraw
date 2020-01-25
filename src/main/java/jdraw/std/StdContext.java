@@ -4,6 +4,7 @@
  */
 package jdraw.std;
 
+import jdraw.decorators.BorderDecorator;
 import jdraw.figures.EllipseTool;
 import jdraw.figures.LineTool;
 import jdraw.figures.RectTool;
@@ -148,6 +149,16 @@ public class StdContext extends AbstractContext {
         grid.addSeparator();
         grid.add(noGrid);
         editMenu.add(grid);
+
+
+        JMenu decsMenu = new JMenu("Decorators..."); editMenu.add(decsMenu);
+        JMenuItem addBorder = new JMenuItem("Add Border Decorator"); decsMenu.add(addBorder);
+        addBorder.addActionListener(e -> {
+            List<Figure> s = getView().getSelection(); getView().clearSelection();
+            for (Figure f : s) {
+                BorderDecorator dec = new BorderDecorator(f); getModel().removeFigure(f); getModel().addFigure(dec); getView().addToSelection(dec);
+            } });
+
 
 
         return editMenu;
