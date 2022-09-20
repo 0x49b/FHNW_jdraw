@@ -1,5 +1,6 @@
 package jdraw.figures.handles;
 
+import jdraw.figures.Line;
 import jdraw.framework.DrawView;
 import jdraw.framework.Figure;
 
@@ -14,13 +15,14 @@ import java.awt.event.MouseEvent;
 public class LineStartHandle extends AbstractHandle {
     public LineStartHandle(Figure owner) {
         super(owner);
+        if (!(owner instanceof Line)) {
+            throw new UnsupportedOperationException();
+        }
     }
 
     @Override
     public Point getLocation() {
         Rectangle bounds = getOwner().getBounds();
-
-
         return new Point((int) getOwner().getBounds().getMinX(), (int) getOwner().getBounds().getMinY());
     }
 

@@ -34,15 +34,12 @@ public class EastHandle extends AbstractHandle {
 
     @Override
     public void dragInteraction(int x, int y, MouseEvent e, DrawView v) {
-
-        Rectangle bounds = getOwner().getBounds();
-
-        logger.debug("X/Y: " + x + "/" + y + "  boundsx : "+bounds.x+"  width:" + bounds.width);
-
-        getOwner().setBounds(
-                new Point(bounds.x, bounds.y),
-                new Point(bounds.x + bounds.width, bounds.y + bounds.height)
-        );
+        Rectangle r = getOwner().getBounds();
+        getOwner().setBounds(new Point(r.x,r.y),
+                             new Point(x,r.y+r.height));
+        if (x < r.x+r.width && r.width == 0) {
+            //getOwner().swapHorizontal();
+        }
     }
 
 }

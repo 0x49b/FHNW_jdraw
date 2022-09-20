@@ -31,14 +31,9 @@ public class NorthWestHandle extends AbstractHandle {
 
     @Override
     public void dragInteraction(int x, int y, MouseEvent e, DrawView v) {
-        if (null == getCorner()) {
-            return;
-        }
+        Rectangle r = getOwner().getBounds();
+        getOwner().setBounds(new Point(x,y), new Point(r.x+r.width, r.y+r.height));
 
-        getOwner().setBounds(
-                new Point(x, y),
-                getCorner()
-        );
     }
 
 }

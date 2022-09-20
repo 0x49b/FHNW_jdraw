@@ -29,11 +29,12 @@ public class NorthHandle extends AbstractHandle {
 
     @Override
     public void dragInteraction(int x, int y, MouseEvent e, DrawView v) {
-        if (null == getCorner()) {
-            return;
+        Rectangle r = getOwner().getBounds();
+        getOwner().setBounds(new Point(r.x, y),
+                             new Point(r.x + r.width, r.y + r.height));
+        if (y > r.y+r.height && r.height == 0) {
+            //getOwner().swapVertical();
         }
-
-        getOwner().setBounds( new Point( getCorner().x - getOwner().getBounds().width, y ), getCorner() );
     }
 
 }
